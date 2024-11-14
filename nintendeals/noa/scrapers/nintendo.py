@@ -17,7 +17,7 @@ def scrap(slug):
     script = soup.find("script", id="__NEXT_DATA__")
     props = json.loads(script.text)["props"]["pageProps"]
 
-    sku = props["linkedData"]["sku"]
+    sku = props["linkedData"][0]["sku"]
 
     store_product = props["initialApolloState"][f'StoreProduct:{{"sku":"{sku}","locale":"en_US"}}']
 
